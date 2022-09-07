@@ -410,35 +410,66 @@
 // (första talet, operator, andra talet). Ignorera inmatade mellanslag i strängen.
 // Om man t.ex. matar in strängen “34 - 14”, så ska programmet skriva ut “= 20”.
 
-Console.Write("Vad ska jag räkna ut (separera med mellanslag): ");
-string userInput = Console.ReadLine(); 
-string[] userInputParts = userInput.Split(' ');
+//Console.Write("Vad ska jag räkna ut (separera med mellanslag): ");
+//string userInput = Console.ReadLine(); 
+//string[] userInputParts = userInput.Split(' ');
 
-string firstInput = userInputParts[0];
-string userCalcMethod = userInputParts[1];
-string secondInput = userInputParts[2];
+//string firstInput = userInputParts[0];
+//string userCalcMethod = userInputParts[1];
+//string secondInput = userInputParts[2];
 
-double firstNum = double.Parse(firstInput);
-double secondNum = double.Parse(secondInput);
+//double firstNum = double.Parse(firstInput);
+//double secondNum = double.Parse(secondInput);
 
-string userCalcMethodInteger = userInputParts[1];
+//string userCalcMethodInteger = userInputParts[1];
 
-double result = 0;
-string calcMethod = "";
-switch (userCalcMethodInteger)
+//double result = 0;
+//string calcMethod = "";
+//switch (userCalcMethodInteger)
+//{
+//    case "+":
+//        result = firstNum + secondNum;
+//        break;
+//    case "-":
+//        result = firstNum - secondNum;
+//        break;
+//    case "*":
+//        result = firstNum * secondNum;
+//        break;
+//    case "/":
+//        result = firstNum / secondNum;
+//        break;
+//}
+
+//Console.WriteLine($"= {result}");
+
+
+// .17
+
+//Ex. Användare matar in “abcdefghijklmnopqrstuvxyz”, och sedan “defg”.
+//Programmet ska då skriva ut: abcdefghijklmnopqrstuvxyz
+
+//använd substring
+
+//Gör ett program som ber användaren mata in en text.
+Console.Write("Skriv en text: ");
+string userInput = Console.ReadLine();
+int userIntput = userInput.IndexOf(userInput);
+
+//Be sedan användaren mata in en sträng som är en del av den första texten.
+Console.Write("Skriv en del av din första text: ");
+string partInput = Console.ReadLine();
+
+if (userInput.Contains(partInput))
 {
-    case "+":
-        result = firstNum + secondNum;
-        break;
-    case "-":
-        result = firstNum - secondNum;
-        break;
-    case "*":
-        result = firstNum * secondNum;
-        break;
-    case "/":
-        result = firstNum / secondNum;
-        break;
-}
+    string[] userInputParts = userInput.Split(partInput);
 
-Console.WriteLine($"= {result}");
+    string firstPart = userInputParts[0];
+    string secondPart = userInputParts[1];
+
+    Console.Write(firstPart );
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.Write(partInput );
+    Console.ForegroundColor = ConsoleColor.Gray;
+    Console.Write(secondPart);
+}
