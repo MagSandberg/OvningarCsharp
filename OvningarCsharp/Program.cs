@@ -275,6 +275,30 @@
 //    }
 //}
 
+// .9 Extra Sten sax påse
+//Extra utmaning 2: skriv ett sten-sax-påse spel.
+//Användaren skriver in “sten”, “sax” eller “påse”.
+//Dators val slumpas med Random.
+//Skriv sedan ut vad datorn valde, och vem som vann omgången.
+//Lägg det hela i en loop så spelet fortsätter tills man matar in en tom sträng
+//(trycker enter utan att skriva något). Skriv även ut poäng.
+
+string[] values = { "sten", "sax", "påse" };
+Random random = new Random();
+int secretNumber = random.Next(0, 3);
+
+switch (secretNumber)
+{
+	case 0:
+		Console.WriteLine(values[0]);
+		break;
+    case 1:
+        Console.WriteLine(values[1]);
+        break;
+    case 2:
+        Console.WriteLine(values[2]);
+        break;
+}
 
 // .10
 // Be användaren mata in en sträng.
@@ -449,27 +473,28 @@
 //Ex. Användare matar in “abcdefghijklmnopqrstuvxyz”, och sedan “defg”.
 //Programmet ska då skriva ut: abcdefghijklmnopqrstuvxyz
 
-//använd substring
+////Gör ett program som ber användaren mata in en text.
+//Console.Write("Skriv en text: ");
+//string userInput = Console.ReadLine();
 
-//Gör ett program som ber användaren mata in en text.
-Console.Write("Skriv en text: ");
-string userInput = Console.ReadLine();
-int userIntput = userInput.IndexOf(userInput);
+////Be sedan användaren mata in en sträng som är en del av den första texten.
+//Console.Write("Skriv en del av din första text: ");
+//string partInput = Console.ReadLine();
 
-//Be sedan användaren mata in en sträng som är en del av den första texten.
-Console.Write("Skriv en del av din första text: ");
-string partInput = Console.ReadLine();
+//if (userInput.Contains(partInput))
+//{
+//    string[] userInputParts = userInput.Split(partInput);
 
-if (userInput.Contains(partInput))
-{
-    string[] userInputParts = userInput.Split(partInput);
+//    string firstPart = userInputParts[0];
+//    string secondPart = userInputParts[1];
 
-    string firstPart = userInputParts[0];
-    string secondPart = userInputParts[1];
-
-    Console.Write(firstPart );
-    Console.ForegroundColor = ConsoleColor.Green;
-    Console.Write(partInput );
-    Console.ForegroundColor = ConsoleColor.Gray;
-    Console.Write(secondPart);
-}
+//    Console.Write(firstPart);
+//    Console.ForegroundColor = ConsoleColor.Green;
+//    Console.Write(partInput);
+//    Console.ForegroundColor = ConsoleColor.Gray;
+//    Console.Write(secondPart);
+//}
+//else if (!userInput.Contains(partInput))
+//{
+//    Console.WriteLine("Det var ingen giltig del.");
+//}
