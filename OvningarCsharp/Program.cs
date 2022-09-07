@@ -143,7 +143,6 @@
 
 
 // .7
-
 //Skriv ett program som ber användaren skriva in en månad.
 //Programmet ska göra om månaden till månadens siffervärde.
 //T.ex. ska januari bli 1 och december 12. Använd switch.
@@ -235,9 +234,8 @@
 
 
 // .8
-
-//Skapa ett program som skriver ut 1 på första raden, 2 på nästa, sedan 4, o.s.v
-//(dubbelt så hög siffra för varje rad). Fortsätt till du skrivit ut 16 rader.
+// Skapa ett program som skriver ut 1 på första raden, 2 på nästa, sedan 4, o.s.v
+// (dubbelt så hög siffra för varje rad). Fortsätt till du skrivit ut 16 rader.
 
 //int outNumber = 1;
 
@@ -249,7 +247,6 @@
 
 
 // .9
-
 //Random random = new Random();
 //int secretNumber = random.Next(0, 101);
 //int userInput;
@@ -292,10 +289,10 @@
 
 
 // .11
-//Skapa ett program med en array som innehåller strängarna
-//“noll”, “ett”, “två”, “tre”, “fyra”, “fem”, “sex”, “sju”, “åtta”, “nio”.
-//Be sedan användaren att mata in en siffra. Använd arrayen för att skriva ut siffrans ord.
-//Ex. Inmatning “3” => “tre”.
+// Skapa ett program med en array som innehåller strängarna
+// “noll”, “ett”, “två”, “tre”, “fyra”, “fem”, “sex”, “sju”, “åtta”, “nio”.
+// Be sedan användaren att mata in en siffra. Använd arrayen för att skriva ut siffrans ord.
+// Ex. Inmatning “3” => “tre”.
 
 //Extra utmaning: Användaren kan mata in en sträng med fritt antal siffror,
 //om man skriver in t.ex 432 så svarar programmet: “fyra - tre - två”.
@@ -310,10 +307,10 @@
 //Console.WriteLine(numbers[userInput]);
 
 
-//.12
-//Fråga användaren hur många tal den vill mata in.
-//Fråga sedan efter talen i tur och ordning (“Ange tal 1:” osv).
-//När alla tal är inmatade skriv ut dem i omvänd ordning.
+// .12
+// Fråga användaren hur många tal den vill mata in.
+// Fråga sedan efter talen i tur och ordning (“Ange tal 1:” osv).
+// När alla tal är inmatade skriv ut dem i omvänd ordning.
 
 //Console.Write("Hur många tal vill du mata in: ");
 //string numberOfInputs = Console.ReadLine();
@@ -358,7 +355,7 @@
 
 // .14
 // Be användaren mata in en text. Skriv ut texten med alla vokaler ersatta med *
-//Extra utmaning: Skriv ut texten översatt till rövarspråket.
+// Extra utmaning: Skriv ut texten översatt till rövarspråket. EJ GJORD
 
 //Console.Write("Skriv en text: ");
 //string userText = Console.ReadLine();
@@ -383,8 +380,9 @@
 //Console.WriteLine("stop");
 
 
-//15 Ett palindrom är ett ord som blir samma framlänges som baklänges.
-//Be användaren skriva in ett ord och ange sedan om det är ett palindrom eller inte.
+// .15
+// Ett palindrom är ett ord som blir samma framlänges som baklänges.
+// Be användaren skriva in ett ord och ange sedan om det är ett palindrom eller inte.
 
 //string Reverse(string userText)
 //{
@@ -407,42 +405,40 @@
 //}
 
 
-//16 Gör om uppgift 6 så man kan mata in allt på en rad
-//(första talet, operator, andra talet). Ignorera inmatade mellanslag i strängen.
-//Om man t.ex. matar in strängen “34 - 14”, så ska programmet skriva ut “= 20”.
+// .16
+// Gör om uppgift 6 så man kan mata in allt på en rad
+// (första talet, operator, andra talet). Ignorera inmatade mellanslag i strängen.
+// Om man t.ex. matar in strängen “34 - 14”, så ska programmet skriva ut “= 20”.
 
-//int result = 0;
-//string input = Console.ReadLine();
+Console.Write("Vad ska jag räkna ut (separera med mellanslag): ");
+string userInput = Console.ReadLine(); 
+string[] userInputParts = userInput.Split(' ');
 
-//for (int i = 0; i < length; i++)
-//{
-//    if (input[i] == ' ')
-//    {
+string firstInput = userInputParts[0];
+string userCalcMethod = userInputParts[1];
+string secondInput = userInputParts[2];
 
-//    }
-//}
+double firstNum = double.Parse(firstInput);
+double secondNum = double.Parse(secondInput);
 
-//int talEtt = int.Parse(input);
+string userCalcMethodInteger = userInputParts[1];
 
-//string calcMethod = "";
-//switch (userCalcMethodInteger)
-//{
-//    case 1:
-//        result = firstInputInteger + secondInputInteger;
-//        calcMethod = "+";
-//        break;
-//    case 2:
-//        result = firstInputInteger - secondInputInteger;
-//        calcMethod = "-";
-//        break;
-//    case 3:
-//        result = firstInputInteger * secondInputInteger;
-//        calcMethod = "*";
-//        break;
-//    case 4:
-//        result = firstInputInteger / secondInputInteger;
-//        calcMethod = "/";
-//        break;
-//}
+double result = 0;
+string calcMethod = "";
+switch (userCalcMethodInteger)
+{
+    case "+":
+        result = firstNum + secondNum;
+        break;
+    case "-":
+        result = firstNum - secondNum;
+        break;
+    case "*":
+        result = firstNum * secondNum;
+        break;
+    case "/":
+        result = firstNum / secondNum;
+        break;
+}
 
-//Console.WriteLine($"= {result}");
+Console.WriteLine($"= {result}");
