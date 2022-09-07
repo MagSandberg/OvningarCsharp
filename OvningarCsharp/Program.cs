@@ -310,7 +310,8 @@
 //Console.WriteLine(numbers[userInput]);
 
 
-//12 Fråga användaren hur många tal den vill mata in.
+//.12
+//Fråga användaren hur många tal den vill mata in.
 //Fråga sedan efter talen i tur och ordning (“Ange tal 1:” osv).
 //När alla tal är inmatade skriv ut dem i omvänd ordning.
 
@@ -338,7 +339,8 @@
 //}
 
 
-//13 Be användaren mata in en text. Skriv sedan ut texten baklänges.
+// .13
+// Be användaren mata in en text. Skriv sedan ut texten baklänges.
 
 //string Reverse(string userText)
 //{
@@ -354,26 +356,28 @@
 //Console.WriteLine(userText);
 
 
-//14 Be användaren mata in en text. Skriv ut texten med alla vokaler ersatta med *
+// .14
+// Be användaren mata in en text. Skriv ut texten med alla vokaler ersatta med *
 //Extra utmaning: Skriv ut texten översatt till rövarspråket.
 
 //Console.Write("Skriv en text: ");
 //string userText = Console.ReadLine();
-////char[] charArray = userText.ToCharArray();
-////string [] charArray2 = new string[charArray.Length];
+
 //char[] vowels = { 'a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö' };
 
-//for (int i = 0; i < userText.Length; i++)
+//if (userText.Length > 0)
 //{
-//    if (userText.Contains(vowels[i]))
+//    for (int i = 0; i < userText.Length; i++)
 //    {
-//        Console.WriteLine(userText.Replace(vowels[i], '*'));
+//        if (userText.Contains(vowels[i]))
+//        {
+//            Console.WriteLine(userText.Replace(vowels[i], '*'));
+//        }
 //    }
-//    else
-//    {
-//        Console.WriteLine("Det fanns inga vokaler i ditt ord");
-//        break;
-//    }
+//}
+//else
+//{
+//    Console.WriteLine("Det fanns inga vokaler i ditt ord");
 //}
 
 //Console.WriteLine("stop");
