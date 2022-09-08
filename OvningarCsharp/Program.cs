@@ -291,6 +291,30 @@ static void ClearCurrentConsoleLine()
     Console.SetCursorPosition(0, currentLineCursor);
 }
 
+string[] rockVsRock = {
+    "    _______     _______",
+    "---'   ____)   (____   '---",
+    "      (_____) (_____)",
+    "      (_____) (_____)",
+    "      (____)   (____)",
+    "---.__(___)     (___)__.---"};
+
+string[] paperVsRock = {
+    "    _______          _______",
+    "---'   ____)____    (____   '---",
+    "          ______)  (_____)",
+    "          _______) (_____)",
+    "         _______)   (____)",
+    "---.__________)      (___)__.---"};
+
+string[] scissorVsRock = {
+    "    _______          _______",
+    "---'   ____)____    (____   '---",
+    "          ______)  (_____)",
+    "          _______) (_____)",
+    "      (____)        (____)",
+    "---.__(___)          (___)__.---"};
+
 double player = 0.0;
 int neo = 0;
 int lika = 0;
@@ -303,7 +327,7 @@ while (isTrue)
     Console.WriteLine("\nSkriv sten, sax eller påse.");
     string userChoice = Console.ReadLine();
 
-    // Tar bort readline från consolen
+    //Tar bort 1 rad i consolen och flyttar upp markören
     Console.SetCursorPosition(0, Console.CursorTop - 1);
     ClearCurrentConsoleLine();
 
@@ -326,6 +350,10 @@ while (isTrue)
                 {
                     if (userChoiceLower == values[2])
                     {
+                        foreach (var item in paperVsRock)
+                        {
+                            Console.WriteLine(item);
+                        }
                         Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[0]}");
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Du vann!");
@@ -334,6 +362,10 @@ while (isTrue)
                     }
                     else if (userChoiceLower == values[1])
                     {
+                        foreach (var item in scissorVsRock)
+                        {
+                            Console.WriteLine(item);
+                        }
                         Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[0]}");
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Neo vann :(");
@@ -342,6 +374,10 @@ while (isTrue)
                     }
                     else
                     {
+                        foreach (var item in rockVsRock)
+                        {
+                            Console.WriteLine(item);
+                        }
                         Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[0]}");
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("Lika");
@@ -430,9 +466,12 @@ while (isTrue)
         Console.WriteLine("\n///////////////////////////");
         Console.Write("\nTryck på valfri tangent för att spela igen");
         Console.ReadKey();
+
+        //Rensar consolen
         Console.Clear();
     }
 }
+
 // .10
 // Be användaren mata in en sträng.
 // Skriv ut varje tecken i strängen på en egen rad. Ex: Hej => H e j
