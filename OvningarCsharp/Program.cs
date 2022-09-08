@@ -283,23 +283,156 @@
 //Lägg det hela i en loop så spelet fortsätter tills man matar in en tom sträng
 //(trycker enter utan att skriva något). Skriv även ut poäng.
 
-string[] values = { "sten", "sax", "påse" };
-Random random = new Random();
-int secretNumber = random.Next(0, 3);
-
-switch (secretNumber)
+static void ClearCurrentConsoleLine()
 {
-	case 0:
-		Console.WriteLine(values[0]);
-		break;
-    case 1:
-        Console.WriteLine(values[1]);
-        break;
-    case 2:
-        Console.WriteLine(values[2]);
-        break;
+    int currentLineCursor = Console.CursorTop;
+    Console.SetCursorPosition(0, Console.CursorTop);
+    Console.Write(new string(' ', Console.WindowWidth));
+    Console.SetCursorPosition(0, currentLineCursor);
 }
 
+double player = 0.0;
+int neo = 0;
+int lika = 0;
+double counter = 0.0;
+double winPercent = 0.0;
+bool isTrue = true;
+while (isTrue)
+{
+    Console.WriteLine("///////////////////////////");
+    Console.WriteLine("\nSkriv sten, sax eller påse.");
+    string userChoice = Console.ReadLine();
+
+    // Tar bort readline från consolen
+    Console.SetCursorPosition(0, Console.CursorTop - 1);
+    ClearCurrentConsoleLine();
+
+    string userChoiceLower = userChoice.ToLower();
+
+    if (userChoice == "")
+    {
+        isTrue = false;
+    }
+    else
+    {
+        string[] values = { "sten", "sax", "påse" };
+        Random random = new Random();
+        int secretNumber = random.Next(0, 3);
+
+        switch (secretNumber)
+        {
+            case 0: // Neo sten
+                if (secretNumber == 0)
+                {
+                    if (userChoiceLower == values[2])
+                    {
+                        Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[0]}");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Du vann!");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        player++;
+                    }
+                    else if (userChoiceLower == values[1])
+                    {
+                        Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[0]}");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Neo vann :(");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        neo++;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[0]}");
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("Lika");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        lika++;
+                    }
+                }
+                break;
+            case 1: // Neo sax
+                if (secretNumber == 1)
+                {
+                    if (userChoiceLower == values[0])
+                    {
+                        Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[1]}");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Du vann!");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        player++;
+                    }
+                    else if (userChoiceLower == values[2])
+                    {
+                        Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[1]}");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Neo vann :(");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        neo++;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[1]}");
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("Lika");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        lika++;
+                    }
+                }
+                break;
+            case 2: // Neo påse
+                if (secretNumber == 2)
+                {
+                    if (userChoiceLower == values[1])
+                    {
+                        Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[2]}");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Du vann!");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        player++;
+                    }
+                    else if (userChoiceLower == values[0])
+                    {
+                        Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[2]}");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Neo vann :(");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        neo++;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[2]}");
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("Lika");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        lika++;
+                    }
+                }
+                break;
+        }
+
+        counter++;
+        if (player == 0)
+        {
+            winPercent = 0.0;
+        }
+        else
+        {
+            winPercent = player / counter * 100;
+        }
+
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine($"\nAntal vinster spelare: {player}");
+        Console.WriteLine($"Antal vinster Neo: {neo}");
+        Console.WriteLine($"Antal spelade omgångar: {counter}");
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine($"\nDin vinstprocent: {Math.Round(winPercent)}%");
+        Console.ForegroundColor = ConsoleColor.Gray;
+        Console.WriteLine("\n///////////////////////////");
+        Console.Write("\nTryck på valfri tangent för att spela igen");
+        Console.ReadKey();
+        Console.Clear();
+    }
+}
 // .10
 // Be användaren mata in en sträng.
 // Skriv ut varje tecken i strängen på en egen rad. Ex: Hej => H e j
