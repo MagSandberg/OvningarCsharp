@@ -315,6 +315,30 @@ string[] scissorVsRock = {
     "      (____)        (____)",
     "---.__(___)          (___)__.---"};
 
+string[] rockVsScissor = {
+    "    _______          _______",
+    "---'   ____)    ____(____   '---",
+    "      (_____)  (_______",
+    "      (_____) (________",
+    "      (____)         (____)",
+    "---.__(___)           (___)__.---"};
+
+string[] scissorVsScissor = {
+    "    _______               _______",
+    "---'   ____)____     ____(____   '---",
+    "          ______)   (_______",
+    "          _______) (________",
+    "      (____)            (____)",
+    "---.__(___)              (___)__.---"};
+
+string[] paperVsScissor = {
+    "    _______               _______",
+    "---'   ____)____     ____(____   '---",
+    "          ______)   (_______",
+    "          _______) (________",
+    "         _______)       (____)",
+    "---.__________)          (___)__.---"};
+
 double player = 0.0;
 int neo = 0;
 int lika = 0;
@@ -352,7 +376,9 @@ while (isTrue)
                     {
                         foreach (var item in paperVsRock)
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
                             Console.WriteLine(item);
+                            Console.ForegroundColor = ConsoleColor.Gray;
                         }
                         Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[0]}");
                         Console.ForegroundColor = ConsoleColor.Green;
@@ -364,7 +390,9 @@ while (isTrue)
                     {
                         foreach (var item in scissorVsRock)
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkMagenta;
                             Console.WriteLine(item);
+                            Console.ForegroundColor = ConsoleColor.Gray;
                         }
                         Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[0]}");
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -376,7 +404,9 @@ while (isTrue)
                     {
                         foreach (var item in rockVsRock)
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkCyan;
                             Console.WriteLine(item);
+                            Console.ForegroundColor = ConsoleColor.Gray;
                         }
                         Console.WriteLine($"\nDitt val: {userChoice}, Neo: {values[0]}");
                         Console.ForegroundColor = ConsoleColor.Magenta;
