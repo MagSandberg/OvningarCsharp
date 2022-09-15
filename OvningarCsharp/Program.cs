@@ -514,7 +514,7 @@
 //}
 
 
-// .11
+//.11
 // Skapa ett program med en array som innehåller strängarna
 // “noll”, “ett”, “två”, “tre”, “fyra”, “fem”, “sex”, “sju”, “åtta”, “nio”.
 // Be sedan användaren att mata in en siffra. Använd arrayen för att skriva ut siffrans ord.
@@ -523,14 +523,20 @@
 //Extra utmaning: Användaren kan mata in en sträng med fritt antal siffror,
 //om man skriver in t.ex 432 så svarar programmet: “fyra - tre - två”.
 
-//string[] numbers = new string[] 
+//string[] numbers = new string[]
 //{ "noll", "ett", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio" };
 
 //Console.Write("Skriv en siffra: ");
 //string userNumber = Console.ReadLine();
-//int.TryParse(userNumber, out int userInput);
 
-//Console.WriteLine(numbers[userInput]);
+//int userInput = 0;
+//int.TryParse(userNumber, out userInput);
+
+//for (int i = userInput; i <= userInput; i++)
+//{
+//    Console.Write($"{numbers[i]} - ");
+
+//}
 
 
 // .12
